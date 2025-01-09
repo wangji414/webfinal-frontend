@@ -1,6 +1,6 @@
 import { Box, Button, Circle, Heading, Hide, IconButton, Menu, MenuButton, MenuItem, MenuList, Show, Center, SimpleGrid, Spacer, Spinner } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"; // 引入 useNavigate
 import React, { useState } from "react";
 import { useAppContext } from "../App";
 import Cart from './Cart';
@@ -20,10 +20,12 @@ function NavBar() {
         setShowing(true);
     };
 
+    const navigate = useNavigate(); // 使用 useNavigate 进行路由跳转
+
     const handleCrudRedirect = () => {
         setLoading(true); // 开始加载
-        setTimeout(() => { // 模拟异步操作
-            window.location.href = 'http://127.0.0.1:5500/public/crud.html';
+        setTimeout(() => {
+            navigate('/crud'); // 跳转到 /crud 路由
             setLoading(false); // 停止加载
         }, 1000);
     };
@@ -36,7 +38,7 @@ function NavBar() {
              {/* 新增管理按鈕 */}
                             {token && (
                     <Button 
-                        ml={-2150} 
+                        ml={-2050} 
                         colorScheme="blue" 
                         onClick={handleCrudRedirect}
                         isLoading={loading} 

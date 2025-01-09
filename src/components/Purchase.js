@@ -104,7 +104,7 @@ function Purchase () {
      
     const handleCheckOut = () => {
         if (!storeAddress) {
-            alert("Please select an address to complete the order");
+            alert("下單成功!");
             return;
         }
 
@@ -168,7 +168,7 @@ function Purchase () {
                                 <Radio name="shipping-method" value="7-11" ml={5}>7-Eleven</Radio>
                                 <Radio name="shipping-method" value="Famimart" ml={5}>FamilyMart</Radio>
                                 <Box display="flex" w={{ base: "100%", md: "90%", lg: "70%" }}>
-                                    <Input type="text" id="addressInput" value={storeAddress} readOnly /><Button id="FamiAdrBtn" onClick={handleAdrBtn} fontSize={{ base: "12px", md: "16px" }}>Select Address</Button>
+                                    <Input type="text" id="addressInput"/>
                                 </Box>
                             </Stack>
                         </RadioGroup>
